@@ -37,7 +37,7 @@ void DS3231::getTime(byte& year, byte& month, byte& date, byte& DoW, byte& hour,
 
 	second = bcdToDec(Wire.read());
 	minute = bcdToDec(Wire.read());
-	tempBuffer = bcdToDec(Wire.read());
+	tempBuffer = Wire.read();
 	h12 = tempBuffer & 0b01000000;
 	if (h12) {
 		PM = tempBuffer & 0b00100000;
